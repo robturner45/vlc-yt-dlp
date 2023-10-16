@@ -1,4 +1,4 @@
-# vlc-youtubeDL
+# vlc-yt-dlp
 A vlc addon for [yt-dlp](https://github.com/yt-dlp/yt-dlp) integration.
 
 ### Prerequisites
