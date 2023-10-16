@@ -28,9 +28,9 @@ end
 function parse()
   local url = vlc.access.."://"..vlc.path -- get full url
 
-  --checks if youtube-dl exists, else download the right file or update it
+  --checks if yt-dlp exists, else download the right file or update it
 
-  local file = assert(io.popen('youtube-dl -j --flat-playlist "'..url..'"', 'r'))  --run youtube-dl in json mode
+  local file = assert(io.popen('yt-dlp -j --flat-playlist "'..url..'"', 'r'))  --run yt-dlp in json mode
   local tracks = {}
   while true do
     local output = file:read('*l')
@@ -39,7 +39,7 @@ function parse()
       break
     end
 
-    local json = JSON.decode(output) -- decode the json-output from youtube-dl
+    local json = JSON.decode(output) -- decode the json-output from yt-dlp
 
     if not json then
       break
@@ -149,4 +149,3 @@ function parse()
   file:close()
   return tracks
 end
-
